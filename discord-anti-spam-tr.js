@@ -9,7 +9,7 @@ var messagelog = [];
  * @param  {object} options - Optional (Custom configuarion options)
  * @return {[type]}         [description]
  */
-module.exports = function (bot, options) {
+module.exports = async function (bot, options) {
   // Set options
   const uyarmaSınırı = (options && options.prefix) || 3;
   const banlamaSınırı = (options && options.prefix) || 5;
@@ -83,6 +83,7 @@ module.exports = function (bot, options) {
   function warn(msg, userid) {
     warned.push(msg.author.id);
     msg.channel.send(msg.author + " " + uyarmaMesajı);
+	msg.delete(500);
   }
 
   /**
@@ -101,16 +102,37 @@ module.exports = function (bot, options) {
 
     banned.push(msg.author.id);
     var role = msg.guild.roles.find('name', rolİsimi)
+	  if (!role) {
+        try {
+            role = await message.guild.createRole({
+                name:  {rolİsimi,
+                color: "#000000",
+                permissions: []
+            })
+            message.guild.channels.forEach(async (channel, id) => {
+                await channel.overwritePermissions(role, {
+                    SEND_MESSAGES: false,
+                    ADD_REACTIONS: false
+                });
+            });
+        } catch (e) {
+            console.log(e.stack);
+        }
+    }
+	
     var user = msg.channel.guild.members.find(member => member.user.id === msg.author.id);
     if (user) {
+		
       user.addRole(role).then((member) => {
         msg.channel.send(msg.author + " " +roleMessage);
 					        var test = setTimeout(()=> {
  user.removeRole(role)
+ 
  }, zaman);
         return true;
      }).catch(() => {
         msg.channel.send("Susturulmuş" + msg.author);
+		msg.delete(500);
         return false;
      });
     }
