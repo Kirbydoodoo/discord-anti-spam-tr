@@ -119,8 +119,8 @@ module.exports = async function (bot, options) {
             msg.guild.channels.forEach(async (channel, id) => {
                 await channel.overwritePermissions(role, {
                     SEND_MESSAGES: false,
-                    ADD_REACTIONS: false
-					 return false;
+                    ADD_REACTIONS: false,
+					return false;
                 });
             });
         } catch (e) {
