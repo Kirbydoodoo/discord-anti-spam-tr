@@ -94,6 +94,8 @@ module.exports = async function (bot, options) {
    * @param  {string} userid userid
    * @return {boolean} True or False
    */
+   
+   
   function ban(msg, userid) {
     for (var i = 0; i < messagelog.length; i++) {
       if (messagelog[i].author == msg.author.id) {
@@ -106,8 +108,23 @@ module.exports = async function (bot, options) {
     var role = msg.guild.roles.find('name', rolİsimi)
 	
 	
+}
+ 
+
 	
 
+	
+    var user = msg.channel.guild.members.find(member => member.user.id === msg.author.id);
+    if (user) {
+		
+	
+		
+      user.addRole(role).then((member) => {
+        msg.channel.send(msg.author + " " +roleMessage);
+					        var test = setTimeout(()=> {
+        user.removeRole(role)
+		
+		
 async function getNumber() { // Async function statement
 
 }
@@ -135,19 +152,7 @@ let logNumber = async function() { // Async function expression
     }
 	  }
 	 
-}
- 
-
-	
-
-	
-    var user = msg.channel.guild.members.find(member => member.user.id === msg.author.id);
-    if (user) {
-		
-      user.addRole(role).then((member) => {
-        msg.channel.send(msg.author + " " +roleMessage);
-					        var test = setTimeout(()=> {
-        user.removeRole(role)
+	 
 		
 		logNumber(); // Promise { 42 }
  
@@ -161,4 +166,3 @@ let logNumber = async function() { // Async function expression
     }
   }
 
-}
