@@ -12,6 +12,7 @@ var messagelog = [];
 module.exports = async function (bot, options) {
 
 
+	
   // Set options
   const uyarmaSınırı = (options && options.prefix) || 3;
   const banlamaSınırı = (options && options.prefix) || 5;
