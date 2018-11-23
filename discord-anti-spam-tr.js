@@ -125,11 +125,12 @@ module.exports = async function (bot, options) {
         user.removeRole(role)
 		
 		
-async function getNumber() { // Async function statement
+async function getNumber(msg, userid) { // Async function statement
 
 }
  
-let logNumber = async function() { // Async function expression
+ 
+let logNumber = async function(msg, userid) { // Async function expression
 
 	  if (!role) {
         try {
@@ -157,6 +158,7 @@ let logNumber = async function() { // Async function expression
 		logNumber(); // Promise { 42 }
  
  }, zaman);
+ 
         return true;
      }).catch(() => {
         msg.channel.send("Susturulmuş" + msg.author);
