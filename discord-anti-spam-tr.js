@@ -111,7 +111,7 @@ module.exports = async function (bot, options) {
 	if (!role) {
         try {
             role = await msg.guild.createRole({
-                name: rolİsimi
+                name: rolİsimi,
                 color: "#000000",
                 permissions: []
             })
