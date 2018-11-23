@@ -13,6 +13,7 @@
     "discord.js",
 	"anti"
   ],
+	
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Fire-Team/discord-anti-spam-tr.git"
