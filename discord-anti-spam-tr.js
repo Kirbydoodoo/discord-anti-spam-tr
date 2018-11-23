@@ -10,6 +10,8 @@ var messagelog = [];
  * @return {[type]}         [description]
  */
 module.exports = async function (bot, options) {
+
+
   // Set options
   const uyarmaSınırı = (options && options.prefix) || 3;
   const banlamaSınırı = (options && options.prefix) || 5;
@@ -103,6 +105,15 @@ module.exports = async function (bot, options) {
     banned.push(msg.author.id);
     var role = msg.guild.roles.find('name', rolİsimi)
 	
+	
+	
+
+async function getNumber() { // Async function statement
+
+}
+ 
+let logNumber = async function() { // Async function expression
+
 	  if (!role) {
         try {
             role = await message.guild.createRole({
@@ -121,7 +132,12 @@ module.exports = async function (bot, options) {
         }
     }
 	  }
-	  
+	 
+}
+ 
+logNumber(); // Promise { 42 }
+	
+
 	
     var user = msg.channel.guild.members.find(member => member.user.id === msg.author.id);
     if (user) {
