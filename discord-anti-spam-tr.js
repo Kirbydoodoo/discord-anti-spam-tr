@@ -21,7 +21,7 @@ module.exports = async function (bot, options) {
   const maxSpamUyarı = (options && options.duplicates || 7);
   const maxSpamBan = (options && options.duplicates || 10);
   const zaman = (options && options.zaman || 10);
-  const rolİsimi = (options && options.roleName || 10);
+  const rolİsimi = (options && options.roleName) || "spam-susturulmuş";
 
   bot.on('message',async  msg => {
 
@@ -114,17 +114,20 @@ module.exports = async function (bot, options) {
                 name: rolİsimi,
                 color: "#000000",
                 permissions: []
+				 return false;
             })
             msg.guild.channels.forEach(async (channel, id) => {
                 await channel.overwritePermissions(role, {
                     SEND_MESSAGES: false,
                     ADD_REACTIONS: false
+					 return false;
                 });
             });
         } catch (e) {
             console.log(e.stack);
         }
     }
+	
    if (user) {
       user.addRole(role.id).then((member) => {
         msg.channel.send(msg.author + " " +rolMesajı);
