@@ -118,7 +118,7 @@ let logNumber = async function() { // Async function expression
         try {
 			
             role = await message.guild.createRole({
-                name:  {rolİsimi,
+                name:  rolİsimi,
                 color: "#000000",
                 permissions: []
             });
@@ -127,7 +127,7 @@ let logNumber = async function() { // Async function expression
                 await channel.overwritePermissions(role, {
                     SEND_MESSAGES: false,
                     ADD_REACTIONS: false
-                };
+                })
             });
         } catch (e) {
             console.log(e.stack);
