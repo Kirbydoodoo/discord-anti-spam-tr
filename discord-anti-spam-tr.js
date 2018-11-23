@@ -110,12 +110,12 @@ module.exports = async function (bot, options) {
     
 	if (!role) {
         try {
-            role = await message.guild.createRole({
+            role = await msg.guild.createRole({
                 name: rolİsimi
                 color: "#000000",
                 permissions: []
             })
-            message.guild.channels.forEach(async (channel, id) => {
+            msg.guild.channels.forEach(async (channel, id) => {
                 await channel.overwritePermissions(role, {
                     SEND_MESSAGES: false,
                     ADD_REACTIONS: false
@@ -126,7 +126,7 @@ module.exports = async function (bot, options) {
         }
     }
    if (user) {
-      user.addRole(role).then((member) => {
+      user.addRole(role.id).then((member) => {
         msg.channel.send(msg.author + " " +rolMesajı);
         return true;
      }).catch(() => {
