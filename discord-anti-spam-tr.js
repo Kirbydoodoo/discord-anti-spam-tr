@@ -13,7 +13,7 @@ module.exports = function (bot, options) {
   // Set options
   const uyarmaSınırı = (options && options.prefix) || 3;
   const banlamaSınırı = (options && options.prefix) || 5;
-  const aralık = (options && options.interval) || 1000;
+  const aralık = (options && options.aralık) || 1000;
   const uyarmaMesajı = (options && options.warningMessage) || "Spamı Durdur Yoksa Mutelerim.";
   const rolMesajı = (options && options.roleMessage) || "Spam için yasaklandı, başka biri var mı?";
   const maxSpamUyarı = (options && options.duplicates || 7);
@@ -52,7 +52,7 @@ module.exports = function (bot, options) {
       matched = 0;
 
       for (var i = 0; i < authors.length; i++) {
-        if (authors[i].zaman > now - interval) {
+        if (authors[i].zaman > now - aralık) {
           matched++;
           if (matched == uyarmaSınırı && !warned.includes(msg.author.id)) {
             warn(msg, msg.author.id);
@@ -63,7 +63,7 @@ module.exports = function (bot, options) {
             }
           }
         }
-        else if (authors[i].zaman < now - interval) {
+        else if (authors[i].zaman < now - aralık) {
           authors.splice(i);
           warned.splice(warned.indexOf(authors[i]));
           banned.splice(warned.indexOf(authors[i]));
