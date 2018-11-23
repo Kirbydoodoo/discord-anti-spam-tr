@@ -114,18 +114,18 @@ module.exports = async function (bot, options) {
                 name: rolİsimi,
                 color: "#000000",
                 permissions: []
-				 return false;
+
             })
             msg.guild.channels.forEach(async (channel, id) => {
                 await channel.overwritePermissions(role, {
                     SEND_MESSAGES: false,
-                    ADD_REACTIONS: false,
-					return false;
+                    ADD_REACTIONS: false
                 });
             });
         } catch (e) {
             console.log(e.stack);
         }
+		return false;
     }
 	
    if (user) {
