@@ -21,6 +21,7 @@ antispam(bot, {
   maxSpamUyarı: 7,//Bir kullanıcının uyarılmadan önce bir zaman dilimi içinde gönderebileceği maksimum kopya sayısı
   maxSpamBan: 10, //Bir kullanıcının yasaklanmadan önce bir zaman diliminde gönderebildiği maksimum kopya sayısı
   zaman: 10, // Spamdan sonraki zaman
+  rolİsimi: "spam-susturulmuş", // Spam Atan Kullanıcılar Verilecek Röl
 });
 
 ```
