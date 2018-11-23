@@ -18,7 +18,7 @@ module.exports = function (bot, options) {
   const rolMesajı = (options && options.roleMessage) || "Spam için yasaklandı, başka biri var mı?";
   const maxSpamUyarı = (options && options.duplicates || 7);
   const maxSpamBan = (options && options.duplicates || 10);
-  const zaman = (options && options.time || 10);
+  const zaman = (options && options.zaman || 10);
   const rolİsimi = (options && options.roleName || 10);
 
   bot.on('message', msg => {
@@ -26,7 +26,7 @@ module.exports = function (bot, options) {
     if(msg.author.id != bot.user.id){
       var now = Math.floor(Date.now());
       authors.push({
-        "time": now,
+        "zaman": now,
         "author": msg.author.id
       });
       messagelog.push({
@@ -42,28 +42,28 @@ module.exports = function (bot, options) {
         }
       }
       // Check matched count
-      if (msgMatch == maxDuplicatesWarning && !warned.includes(msg.author.id)) {
+      if (msgMatch == maxSpamUyarı && !warned.includes(msg.author.id)) {
         warn(msg, msg.author.id);
       }
-      if (msgMatch == maxDuplicatesBan && !banned.includes(msg.author.id)) {
+      if (msgMatch == maxSpamBan && !banned.includes(msg.author.id)) {
         ban(msg, msg.author.id);
       }
 
       matched = 0;
 
       for (var i = 0; i < authors.length; i++) {
-        if (authors[i].time > now - interval) {
+        if (authors[i].zaman > now - interval) {
           matched++;
-          if (matched == warnBuffer && !warned.includes(msg.author.id)) {
+          if (matched == uyarmaSınırı && !warned.includes(msg.author.id)) {
             warn(msg, msg.author.id);
           }
-          else if (matched == maxBuffer) {
+          else if (matched == banlamaSınırı) {
             if (!banned.includes(msg.author.id)) {
               ban(msg, msg.author.id);
             }
           }
         }
-        else if (authors[i].time < now - interval) {
+        else if (authors[i].zaman < now - interval) {
           authors.splice(i);
           warned.splice(warned.indexOf(authors[i]));
           banned.splice(warned.indexOf(authors[i]));
@@ -82,7 +82,7 @@ module.exports = function (bot, options) {
    */
   function warn(msg, userid) {
     warned.push(msg.author.id);
-    msg.channel.send(msg.author + " " + warningMessage);
+    msg.channel.send(msg.author + " " + uyarmaMesajı);
   }
 
   /**
@@ -100,14 +100,14 @@ module.exports = function (bot, options) {
     }
 
     banned.push(msg.author.id);
-    var role = msg.guild.roles.find('name', roleName)
+    var role = msg.guild.roles.find('name', rolİsimi)
     var user = msg.channel.guild.members.find(member => member.user.id === msg.author.id);
     if (user) {
       user.addRole(role).then((member) => {
         msg.channel.send(msg.author + " " +roleMessage);
 					        var test = setTimeout(()=> {
  user.removeRole(role)
- }, time);
+ }, zaman);
         return true;
      }).catch(() => {
         msg.channel.send("Susturulmuş" + msg.author);
