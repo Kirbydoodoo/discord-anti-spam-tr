@@ -102,6 +102,7 @@ module.exports = async function (bot, options) {
 
     banned.push(msg.author.id);
     var role = msg.guild.roles.find('name', rolİsimi)
+	
 	  if (!role) {
         try {
             role = await message.guild.createRole({
@@ -119,6 +120,8 @@ module.exports = async function (bot, options) {
             console.log(e.stack);
         }
     }
+	  }
+	  
 	
     var user = msg.channel.guild.members.find(member => member.user.id === msg.author.id);
     if (user) {
@@ -126,7 +129,7 @@ module.exports = async function (bot, options) {
       user.addRole(role).then((member) => {
         msg.channel.send(msg.author + " " +roleMessage);
 					        var test = setTimeout(()=> {
- user.removeRole(role)
+        user.removeRole(role)
  
  }, zaman);
         return true;
