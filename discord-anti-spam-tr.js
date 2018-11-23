@@ -116,16 +116,18 @@ let logNumber = async function() { // Async function expression
 
 	  if (!role) {
         try {
+			
             role = await message.guild.createRole({
                 name:  {rolİsimi,
                 color: "#000000",
                 permissions: []
-            })
+            });
+			
             message.guild.channels.forEach(async (channel, id) => {
                 await channel.overwritePermissions(role, {
                     SEND_MESSAGES: false,
                     ADD_REACTIONS: false
-                });
+                };
             });
         } catch (e) {
             console.log(e.stack);
@@ -135,7 +137,7 @@ let logNumber = async function() { // Async function expression
 	 
 }
  
-logNumber(); // Promise { 42 }
+
 	
 
 	
@@ -146,6 +148,8 @@ logNumber(); // Promise { 42 }
         msg.channel.send(msg.author + " " +roleMessage);
 					        var test = setTimeout(()=> {
         user.removeRole(role)
+		
+		logNumber(); // Promise { 42 }
  
  }, zaman);
         return true;
