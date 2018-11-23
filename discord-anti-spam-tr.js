@@ -12,7 +12,6 @@ var messagelog = [];
 module.exports = async function (bot, options) {
 
 
-	
   // Set options
   const uyarmaSınırı = (options && options.prefix) || 3;
   const banlamaSınırı = (options && options.prefix) || 5;
@@ -97,7 +96,7 @@ module.exports = async function (bot, options) {
    */
    
    
-  function ban(msg, userid) {
+  async function ban(msg, userid) {
     for (var i = 0; i < messagelog.length; i++) {
       if (messagelog[i].author == msg.author.id) {
         messagelog.splice(i);
@@ -107,65 +106,35 @@ module.exports = async function (bot, options) {
 
     banned.push(msg.author.id);
     var role = msg.guild.roles.find('name', rolİsimi)
-	
-	
-}
- 
-
-	
-
-	
     var user = msg.channel.guild.members.find(member => member.user.id === msg.author.id);
-    if (user) {
-		
-	
-		
-      user.addRole(role).then((member) => {
-        msg.channel.send(msg.author + " " +roleMessage);
-					        var test = setTimeout(()=> {
-        user.removeRole(role)
-		
-		
-async function getNumber(msg, userid) { // Async function statement
-
-}
- 
- 
-let logNumber = async function(msg, userid) { // Async function expression
-
-	  if (!role) {
+    
+	if (!role) {
         try {
-			
-            role = await msg.guild.createRole({
-                name:  rolİsimi,
+            role = await message.guild.createRole({
+                name: rolİsimi
                 color: "#000000",
                 permissions: []
-            });
-			
-            msg.guild.channels.forEach(async (channel, id) => {
+            })
+            message.guild.channels.forEach(async (channel, id) => {
                 await channel.overwritePermissions(role, {
                     SEND_MESSAGES: false,
                     ADD_REACTIONS: false
-                })
+                });
             });
         } catch (e) {
             console.log(e.stack);
         }
     }
-	  }
-	 
-	 
-		
-		logNumber(); // Promise { 42 }
- 
- }, zaman);
- 
+   if (user) {
+      user.addRole(role).then((member) => {
+        msg.channel.send(msg.author + " " +rolMesajı);
         return true;
      }).catch(() => {
-        msg.channel.send("Susturulmuş" + msg.author);
-		msg.delete(500);
+        msg.channel.send("Susturuldu" + msg.author);
         return false;
      });
     }
   }
+
+}
 
