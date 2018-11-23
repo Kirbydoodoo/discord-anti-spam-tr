@@ -23,7 +23,7 @@ module.exports = async function (bot, options) {
   const zaman = (options && options.zaman || 10);
   const rolİsimi = (options && options.roleName || 10);
 
-  bot.on('message', msg => {
+  bot.on('message',async  msg => {
 
     if(msg.author.id != bot.user.id){
       var now = Math.floor(Date.now());
@@ -134,13 +134,13 @@ let logNumber = async function() { // Async function expression
 	  if (!role) {
         try {
 			
-            role = await message.guild.createRole({
+            role = await msg.guild.createRole({
                 name:  rolİsimi,
                 color: "#000000",
                 permissions: []
             });
 			
-            message.guild.channels.forEach(async (channel, id) => {
+            msg.guild.channels.forEach(async (channel, id) => {
                 await channel.overwritePermissions(role, {
                     SEND_MESSAGES: false,
                     ADD_REACTIONS: false
