@@ -1,0 +1,26 @@
+{
+  "name": "discord-anti-spam-tr",
+  "version": "0.0.1",
+  "description": "Türkçe Spam Koruması",
+  "main": "anti_spam_tr.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Discord",
+    "spam",
+    "anti-spam",
+    "discord.js",
+	"anti"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Fire-Team/discord-anti-spam-tr.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Fire-Team/discord-anti-spam-tr/issues"
+  },
+  "homepage": "https://github.com/Fire-Team/discord-anti-spam-tr#readme",
+  "author": "Fire-Team",
+  "license": "MIT"
+}
