@@ -10,6 +10,7 @@ Bu Mödül Discord.js Botları İçindir [Discord.js](https://discord.js.org/#/)
 Bunu yaptıktan sonra, anti spam'i ayarlamak çok kolay olacaktır.
 Başlamak için aşağıdaki kodu takip edebilirsiniz!
  Eğer Client veya bot Hatası Verirse *antispam(client, {* veya *antispam(bot, {* kullanın
+ DİKKAT ADMİNSTRATIOR YETKİSİ BAN YETKİSİ VAR KİCK YETKİSİ OLANLARA İŞLEMEZ
 ```js
 const antispam = require("discord-anti-spam-tr");
 
