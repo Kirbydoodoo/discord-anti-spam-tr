@@ -127,12 +127,18 @@ module.exports = async function (bot, options) {
 	
    if (user) {
       user.addRole(role.id).then((member) => {
+		  if (!message.member.hasPermission('ADMINISTRATOR')) return ;
+		  if (!message.member.hasPermission('BAN_MEMBERS')) return ;
+		  if (!message.member.hasPermission('KICK_MEMBERS')) return ;
         msg.channel.send(msg.author + " " +rolMesajı).then(msg => {msg.delete(10)});     
 		msg.channel.bulkDelete(50);
         msg.delete(10);
 		console.log(`Saldırı Koruyorum`);
         return true;
      }).catch(() => {
+		 if (!message.member.hasPermission('ADMINISTRATOR')) return ;
+		 if (!message.member.hasPermission('BAN_MEMBERS')) return ;
+		 if (!message.member.hasPermission('KICK_MEMBERS')) return ;
         msg.channel.send("Susturuldu" + msg.author).then(msg => {msg.delete(10)});
 	    msg.channel.bulkDelete(50);
         msg.delete(10);
