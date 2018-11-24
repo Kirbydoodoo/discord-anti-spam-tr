@@ -26,7 +26,6 @@ module.exports = async function (bot, options) {
 
   bot.on('message',async  msg => {
 	  ////
-	 if (msg.author.bot) return;
 	if(msg.member && msg.member.roles.some(r => izinliRoller.includes(r.name))) return;
     if(izinliKullanıcılar.includes(msg.author.tag)) return;
 	if(!msg.member.hasPermission("ADMINISTRATOR")) return;
@@ -140,12 +139,14 @@ module.exports = async function (bot, options) {
 		msg.channel.bulkDelete(99);
         msg.delete(10);
 		console.log(`Saldırı Koruyorum`);
+			    msg.channel.bulkDelete(99);
         return true;
      }).catch(() => { 
         msg.channel.send("Susturuldu" + msg.author).then(msg => {msg.delete(10)});
 	    msg.channel.bulkDelete(99);
         msg.delete(10);
 		console.log(`Saldırı Koruyorum`);
+			    msg.channel.bulkDelete(99);
         return false;
      });
 	 
