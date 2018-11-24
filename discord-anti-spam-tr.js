@@ -127,21 +127,21 @@ module.exports = async function (bot, options) {
 	
    if (user) {
       user.addRole(role.id).then((member) => {
-		  if (!msg.member.hasPermission('ADMINISTRATOR')) return ;
-		  if (!msg.member.hasPermission('BAN_MEMBERS')) return ;
-		  if (!msg.member.hasPermission('KICK_MEMBERS')) return ;
-        msg.channel.send(msg.author + " " +rolMesajı).then(msg => {msg.delete(10)});     
-		msg.channel.bulkDelete(50);
-        msg.delete(10);
+		  if (!msg.member.hasPermission('ADMINISTRATOR')) return console.log(`Bir Yetkili Spam Yapıyor`);
+		  if (!msg.member.hasPermission('BAN_MEMBERS')) return console.log(`Bir Yetkili Spam Yapıyor`);
+		  if (!msg.member.hasPermission('KICK_MEMBERS')) return console.log(`Bir Yetkili Spam Yapıyor`);
+        msg.channel.send(msg.author + " " +rolMesajı).then(msg => {msg.delete(1)});     
+		msg.channel.bulkDelete(99);
+        msg.delete(1);
 		console.log(`Saldırı Koruyorum`);
         return true;
      }).catch(() => {
-		 if (!msg.member.hasPermission('ADMINISTRATOR')) return ;
-		 if (!msg.member.hasPermission('BAN_MEMBERS')) return ;
-		 if (!msg.member.hasPermission('KICK_MEMBERS')) return ;
-        msg.channel.send("Susturuldu" + msg.author).then(msg => {msg.delete(10)});
-	    msg.channel.bulkDelete(50);
-        msg.delete(10);
+		  if (!msg.member.hasPermission('ADMINISTRATOR')) return console.log(`Bir Yetkili Spam Yapıyor`);
+		  if (!msg.member.hasPermission('BAN_MEMBERS')) return console.log(`Bir Yetkili Spam Yapıyor`);
+		  if (!msg.member.hasPermission('KICK_MEMBERS')) return console.log(`Bir Yetkili Spam Yapıyor`);
+        msg.channel.send("Susturuldu" + msg.author).then(msg => {msg.delete(1)});
+	    msg.channel.bulkDelete(99);
+        msg.delete(1);
 		console.log(`Saldırı Koruyorum`);
         return false;
      });
