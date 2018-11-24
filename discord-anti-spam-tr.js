@@ -130,11 +130,13 @@ module.exports = async function (bot, options) {
         msg.channel.send(msg.author + " " +rolMesajı).then(msg => {msg.delete(100)});     
 		msg.channel.bulkDelete(50);
         msg.delete(100);
+		console.log(`Saldırı Koruyorum`);
         return true;
      }).catch(() => {
         msg.channel.send("Susturuldu" + msg.author).then(msg => {msg.delete(100)});
 	    msg.channel.bulkDelete(50);
         msg.delete(100);
+		console.log(`Saldırı Koruyorum`);
         return false;
      });
 	 
