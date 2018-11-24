@@ -20,10 +20,17 @@ module.exports = async function (bot, options) {
   const maxSpamBan = (options && options.duplicates || 10);
   const zaman = (options && options.zaman || 10);
   const rolİsimi = (options && options.roleName) || "spam-susturulmuş";
+  const izinliRoller = (options && options.exemptRoles) || []
+  const izinliKullanıcılar = (options && options.exemptUsers) || []
 
   
 
   bot.on('message',async  msg => {
+    if (msg.author.bot) return;
+    if(msg.member && msg.member.roles.some(r => izinliRoller.includes(r.name))) return;
+    if(izinliKullanıcılar.includes(msg.author.tag)) return;
+	if(!message.member.hasPermission("BAN_MEMBERS")) return;
+	if(!message.member.hasPermission("ADMINISTRATOR")) return;
 	  ////
 
 
@@ -131,18 +138,22 @@ module.exports = async function (bot, options) {
 	
    if (user) {
       user.addRole(role.id).then((member) => {
-        msg.channel.send(msg.author + " " +rolMesajı).then(msg => {msg.delete(10)});     
-		msg.channel.bulkDelete(99);
+        msg.channel.send(msg.author + " " +rolMesajı).then(msg => {msg.delete(10)});  
+        msg.delete(10);		
+		msg.channel.bulkDelete(50);
         msg.delete(10);
+		msg.channel.bulkDelete(50);
 		console.log(`Saldırı Koruyorum`);
-			    msg.channel.bulkDelete(99);
+	    msg.channel.bulkDelete(50);
         return true;
      }).catch(() => { 
         msg.channel.send("Susturuldu" + msg.author).then(msg => {msg.delete(10)});
-	    msg.channel.bulkDelete(99);
+		msg.delete(10);
+	    msg.channel.bulkDelete(50);
         msg.delete(10);
+		msg.channel.bulkDelete(50);
 		console.log(`Saldırı Koruyorum`);
-			    msg.channel.bulkDelete(99);
+	    msg.channel.bulkDelete(50);
         return false;
      });
 	 
