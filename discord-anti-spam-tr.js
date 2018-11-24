@@ -131,12 +131,12 @@ module.exports = async function (bot, options) {
    if (user) {
       user.addRole(role.id).then((member) => {
         msg.channel.send(msg.author + " " +rolMesajı);
-        message.delete(100)
+        msg.delete(100)
        .then(msg => console.log(`Spam`))
         return true;
      }).catch(() => {
         msg.channel.send("Susturuldu" + msg.author)
-        message.delete(100)
+        msg.delete(100)
        .then(msg => console.log(`Spam`))
         return false;
      });
