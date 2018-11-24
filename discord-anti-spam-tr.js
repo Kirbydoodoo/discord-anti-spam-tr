@@ -20,8 +20,8 @@ module.exports = async function (bot, options) {
   const maxSpamBan = (options && options.duplicates || 10);
   const zaman = (options && options.zaman || 10);
   const rolİsimi = (options && options.roleName) || "spam-susturulmuş";
-  const izinliRoller = (options && options.exemptRoles) || []
-  const izinliKullanıcılar = (options && options.exemptUsers) || []
+  const izinliRoller = (options && options.izinliRoller) || []
+  const izinliKullanıcılar = (options && options.izinliKullanıcılar) || []
 
   
 
@@ -29,8 +29,8 @@ module.exports = async function (bot, options) {
     if (msg.author.bot) return;
     if(msg.member && msg.member.roles.some(r => izinliRoller.includes(r.name))) return;
     if(izinliKullanıcılar.includes(msg.author.tag)) return;
-	if(!message.member.hasPermission("BAN_MEMBERS")) return;
-	if(!message.member.hasPermission("ADMINISTRATOR")) return;
+	if(!msg.member.hasPermission("BAN_MEMBERS")) return;
+	if(!msg.member.hasPermission("ADMINISTRATOR")) return;
 	  ////
 
 
@@ -149,11 +149,9 @@ module.exports = async function (bot, options) {
      }).catch(() => { 
         msg.channel.send("Susturuldu" + msg.author).then(msg => {msg.delete(10)});
 		msg.delete(10);
-	    msg.channel.bulkDelete(50);
         msg.delete(10);
 		msg.channel.bulkDelete(50);
 		console.log(`Saldırı Koruyorum`);
-	    msg.channel.bulkDelete(50);
         return false;
      });
 	 
