@@ -2,6 +2,7 @@
 
 # discord-anti-spam-tr.js
 Discord Sunucusu İçin Spam Koruması
+Yardım İçin Fire Team Discord Sunucusu [Fire Team Discord Sunucusu](https://discord.gg/J2FWrfW)
 
 ## Kurulum
 Bu Mödül Discord.js Botları İçindir [Discord.js](https://discord.js.org/#/) Discord.js Sitesi.
