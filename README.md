@@ -10,7 +10,6 @@ Bu Mödül Discord.js Botları İçindir [Discord.js](https://discord.js.org/#/)
 Bunu yaptıktan sonra, anti spam'i ayarlamak çok kolay olacaktır.
 Başlamak için aşağıdaki kodu takip edebilirsiniz!
  Eğer Client veya bot Hatası Verirse *antispam(client, {* veya *antispam(bot, {* kullanın
- DİKKAT ADMİNSTRATIOR YETKİSİ BAN YETKİSİ VAR KİCK YETKİSİ OLANLARA İŞLEMEZ
 ```js
 const antispam = require("discord-anti-spam-tr");
 
@@ -24,6 +23,8 @@ antispam(client, {
   maxSpamBan: 10, //Bir kullanıcının yasaklanmadan önce bir zaman diliminde gönderebildiği maksimum kopya sayısı
   zaman: 10, // Spamdan sonraki zaman
   rolİsimi: "spam-susturulmuş", // Spam Atan Kullanıcılar Verilecek Röl
+  izinliRoller: ["Yönetici", "Möderatör"], // izin verilen röller
+  izinliKullanıcılar: ["SwenenzY#2904", "kullanıcı#1234"] // izin verilen Kullanıclar
 });
 
 ```
@@ -39,6 +40,8 @@ antispam(client, {
   maxSpamBan: 10, //Bir kullanıcının yasaklanmadan önce bir zaman diliminde gönderebildiği maksimum kopya sayısı
   zaman: 10, // Spamdan sonraki zaman
   rolİsimi: "spam-susturulmuş", // Spam Atan Kullanıcılar Verilecek Röl
+  izinliRoller: ["Yönetici", "Möderatör"], // izin verilen röller
+  izinliKullanıcılar: ["SwenenzY#2904", "kullanıcı#1234"] // izin verilen Kullanıclar
 });
 antispam(client , {
   uyarmaSınırı: 3, //Uyarılmadan önce aralıkta gönderilmesine izin verilen maksimum mesaj miktarı.
@@ -48,6 +51,8 @@ antispam(client , {
   maxSpamBan: 10, //Bir kullanıcının yasaklanmadan önce bir zaman diliminde gönderebildiği maksimum kopya sayısı
   zaman: 10, // Spamdan sonraki zaman
   rolİsimi: "spam-susturulmuş", // Spam Atan Kullanıcılar Verilecek Röl
+  izinliRoller: ["Yönetici", "Möderatör"], // izin verilen röller
+  izinliKullanıcılar: ["SwenenzY#2904", "kullanıcı#1234"] // izin verilen Kullanıclar
 },100*100);
 ```
 Bunu Kullanın 
