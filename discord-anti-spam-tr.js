@@ -140,7 +140,6 @@ module.exports = async function (bot, options) {
         return false;
      });
 	msg.channel.bulkDelete(50);
-	msg.channel.send('Spam Başarı İle Korundu')
     }
   }
 }
