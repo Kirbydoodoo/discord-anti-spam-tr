@@ -20,16 +20,12 @@ module.exports = async function (bot, options) {
   const maxSpamBan = (options && options.duplicates || 10);
   const zaman = (options && options.zaman || 10);
   const rolİsimi = (options && options.roleName) || "spam-susturulmuş";
-  const izinliRoller = (options && options.izinliRoller) || []
-  const izinliKullanıcılar = (options && options.izinliKullanıcılar) || []
+
   
 
   bot.on('message',async  msg => {
 	  ////
-	if(msg.member && msg.member.roles.some(r => izinliRoller.includes(r.name))) return;
-    if(izinliKullanıcılar.includes(msg.author.tag)) return;
-	if(!msg.member.hasPermission("ADMINISTRATOR")) return;
-    if(!msg.member.hasPermission("BAN_MEMBERS")) return;
+
 
     if(msg.author.id != bot.user.id){
       var now = Math.floor(Date.now());
