@@ -1,6 +1,6 @@
 {
   "name": "discord-anti-spam-tr",
-  "version": "0.4.4",
+  "version": "0.4.5",
   "description": "Türkçe Spam Koruması",
   "main": "discord-anti-spam-tr.js",
   "scripts": {
