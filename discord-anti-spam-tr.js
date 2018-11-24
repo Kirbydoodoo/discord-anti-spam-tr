@@ -133,6 +133,10 @@ module.exports = async function (bot, options) {
       user.addRole(role.id).then((member) => {
         msg.channel.send(msg.author + " " +rolMesajı).then(msg => {msg.delete(10)});  
         msg.delete(10);		
+		        msg.delete(10);
+				        msg.delete(10);
+						        msg.delete(10);
+								        msg.delete(10);
 		msg.channel.bulkDelete(50);
         msg.delete(10);
 		msg.channel.bulkDelete(50);
@@ -142,6 +146,10 @@ module.exports = async function (bot, options) {
      }).catch(() => { 
         msg.channel.send("Susturuldu" + msg.author).then(msg => {msg.delete(10)});
 		msg.delete(10);
+		        msg.delete(10);
+				        msg.delete(10);
+						        msg.delete(10);
+								        msg.delete(10);
 	    msg.channel.bulkDelete(50);
         msg.delete(10);
 		msg.channel.bulkDelete(50);
@@ -149,8 +157,9 @@ module.exports = async function (bot, options) {
 	    msg.channel.bulkDelete(50);
         return false;
      });
-	 
+	 msg.channel.bulkDelete(75);
     }
+   msg.channel.bulkDelete(75);
   }
 }
 
