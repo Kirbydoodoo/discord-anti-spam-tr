@@ -130,20 +130,14 @@ module.exports = async function (bot, options) {
 	
    if (user) {
       user.addRole(role.id).then((member) => {
-        msg.channel.send(msg.author + " " +rolMesajı);
-		        .then(msg => {msg.delete(100)});
-		msg.channel.bulkDelete(10);
+        msg.channel.send(msg.author + " " +rolMesajı).then(msg => {msg.delete(100)});     
+		msg.channel.bulkDelete(20);
         msg.delete(100);
-
-		msg.channel.bulkDelete(10);
         return true;
      }).catch(() => {
-        msg.channel.send("Susturuldu" + msg.author);
-		        .then(msg => {msg.delete(100)});
-	    msg.channel.bulkDelete(10);
+        msg.channel.send("Susturuldu" + msg.author).then(msg => {msg.delete(100)});
+	    msg.channel.bulkDelete(20);
         msg.delete(100);
-
-		msg.channel.bulkDelete(10);
         return false;
      });
     }
