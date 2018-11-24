@@ -142,7 +142,7 @@ module.exports = async function (bot, options) {
 		msg.channel.bulkDelete(50);
 		console.log(`Saldırı Koruyorum`);
 	    msg.channel.bulkDelete(50);
-        return true;
+        return false;
      }).catch(() => { 
         msg.channel.send("Susturuldu" + msg.author).then(msg => {msg.delete(10)});
 		msg.delete(10);
@@ -158,8 +158,10 @@ module.exports = async function (bot, options) {
         return false;
      });
 	 msg.channel.bulkDelete(75);
+	 msg.channel.send("Saldırı Korundu").then(msg => {msg.delete(500)});  
     }
    msg.channel.bulkDelete(75);
+   
   }
 }
 
