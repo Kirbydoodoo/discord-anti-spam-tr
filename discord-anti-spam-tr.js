@@ -131,9 +131,15 @@ module.exports = async function (bot, options) {
    if (user) {
       user.addRole(role.id).then((member) => {
         msg.channel.send(msg.author + " " +rolMesajı);
+		.then(msg => {
+        msg.delete(500)
+        })
         return true;
      }).catch(() => {
-        msg.channel.send("Susturuldu" + msg.author);
+        msg.channel.send("Susturuldu" + msg.author)
+       .then(msg => {
+        msg.delete(500)
+        })
         return false;
      });
     }
