@@ -4,15 +4,13 @@ var banned = [];
 var messagelog = [];
 
 /**
- * Add simple spam protection to your discord server.
+ * Aspam koruması.
  * @param  {Bot} bot - The discord.js CLient/bot
  * @param  {object} options - Optional (Custom configuarion options)
  * @return {[type]}         [description]
  */
 module.exports = async function (bot, options) {
 
-
-  // Set options
   const uyarmaSınırı = (options && options.prefix) || 3;
   const banlamaSınırı = (options && options.prefix) || 5;
   const aralık = (options && options.aralık) || 1000;
@@ -35,15 +33,14 @@ module.exports = async function (bot, options) {
         "message": msg.content,
         "author": msg.author.id
       });
-
-      // Check how many times the same message has been sent.
+// mesaj kontrolü
       var msgMatch = 0;
       for (var i = 0; i < messagelog.length; i++) {
         if (messagelog[i].message == msg.content && (messagelog[i].author == msg.author.id) && (msg.author.id !== bot.user.id)) {
           msgMatch++;
         }
       }
-      // Check matched count
+// mesaj kontrolü 2
       if (msgMatch == maxSpamUyarı && !warned.includes(msg.author.id)) {
         warn(msg, msg.author.id);
       }
@@ -78,7 +75,7 @@ module.exports = async function (bot, options) {
   });
 
   /**
-   * Warn a user
+   * kullanıcyı uyarma
    * @param  {Object} msg
    * @param  {string} userid userid
    */
@@ -89,7 +86,7 @@ module.exports = async function (bot, options) {
   }
 
   /**
-   * Ban a user by the user id
+   * banlama
    * @param  {Object} msg
    * @param  {string} userid userid
    * @return {boolean} True or False
@@ -143,6 +140,5 @@ module.exports = async function (bot, options) {
 	 
     }
   }
-
 }
 
