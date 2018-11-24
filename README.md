@@ -3,6 +3,8 @@
 # discord-anti-spam-tr.js
 Discord Sunucusu İçin Spam Koruması
 Yardım İçin Fire Team Discord Sunucusu [Fire Team Discord Sunucusu](https://discord.gg/J2FWrfW)
+Yardım İçin Fire Team Discord Sunucusu [Fire Team Discord Sunucusu](https://discord.gg/J2FWrfW)
+Yardım İçin Fire Team Discord Sunucusu [Fire Team Discord Sunucusu](https://discord.gg/J2FWrfW)
 
 ## Kurulum
 Bu Mödül Discord.js Botları İçindir [Discord.js](https://discord.js.org/#/) Discord.js Sitesi.
@@ -10,6 +12,7 @@ Bu Mödül Discord.js Botları İçindir [Discord.js](https://discord.js.org/#/)
 Bunu yaptıktan sonra, anti spam'i ayarlamak çok kolay olacaktır.
 Başlamak için aşağıdaki kodu takip edebilirsiniz!
  Eğer Client veya bot Hatası Verirse *antispam(client, {* veya *antispam(bot, {* kullanın
+ Dikkat Banlama Yönetici ve Sunucyu Yönet Yetkisi Olanlarda İşelemez
 ```js
 const antispam = require("discord-anti-spam-tr");
 
