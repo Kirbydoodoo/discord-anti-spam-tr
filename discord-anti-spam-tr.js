@@ -30,8 +30,7 @@ module.exports = async function (bot, options) {
 	if(msg.member && msg.member.roles.some(r => izinliRoller.includes(r.name))) return;
     if(izinliKullanıcılar.includes(msg.author.tag)) return;
 	if(!msg.member.hasPermission("ADMINISTRATOR")) return;
-    if(!msg.member.hasPermission("BAN_MEMBERS")) return
-	 if(!msg.member.hasPermission("MANAGE_GUILD")) return
+    if(!msg.member.hasPermission("BAN_MEMBERS")) return;
 
     if(msg.author.id != bot.user.id){
       var now = Math.floor(Date.now());
@@ -137,15 +136,15 @@ module.exports = async function (bot, options) {
 	
    if (user) {
       user.addRole(role.id).then((member) => {
-        msg.channel.send(msg.author + " " +rolMesajı).then(msg => {msg.delete(1)});     
+        msg.channel.send(msg.author + " " +rolMesajı).then(msg => {msg.delete(10)});     
 		msg.channel.bulkDelete(99);
-        msg.delete(1);
+        msg.delete(10);
 		console.log(`Saldırı Koruyorum`);
         return true;
      }).catch(() => { 
-        msg.channel.send("Susturuldu" + msg.author).then(msg => {msg.delete(1)});
+        msg.channel.send("Susturuldu" + msg.author).then(msg => {msg.delete(10)});
 	    msg.channel.bulkDelete(99);
-        msg.delete(1);
+        msg.delete(10);
 		console.log(`Saldırı Koruyorum`);
         return false;
      });
