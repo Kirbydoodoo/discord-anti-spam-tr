@@ -25,9 +25,7 @@ antispam(client, {
   maxSpamUyarı: 7,//Bir kullanıcının uyarılmadan önce bir zaman dilimi içinde gönderebileceği maksimum kopya sayısı
   maxSpamBan: 10, //Bir kullanıcının yasaklanmadan önce bir zaman diliminde gönderebildiği maksimum kopya sayısı
   zaman: 10, // Spamdan sonraki zaman
-  rolİsimi: "spam-susturulmuş", // Spam Atan Kullanıcılar Verilecek Röl
-  izinliRoller: ["Yönetici", "Möderatör"], // izin verilen röller
-  izinliKullanıcılar: ["SwenenzY#2904", "kullanıcı#1234"] // izin verilen Kullanıclar
+  rolİsimi: "spam-susturulmuş" // Spam Atan Kullanıcılar Verilecek Röl
 });
 
 ```
@@ -42,9 +40,7 @@ antispam(client, {
   maxSpamUyarı: 7,//Bir kullanıcının uyarılmadan önce bir zaman dilimi içinde gönderebileceği maksimum kopya sayısı
   maxSpamBan: 10, //Bir kullanıcının yasaklanmadan önce bir zaman diliminde gönderebildiği maksimum kopya sayısı
   zaman: 10, // Spamdan sonraki zaman
-  rolİsimi: "spam-susturulmuş", // Spam Atan Kullanıcılar Verilecek Röl
-  izinliRoller: ["Yönetici", "Möderatör"], // izin verilen röller
-  izinliKullanıcılar: ["SwenenzY#2904", "kullanıcı#1234"] // izin verilen Kullanıclar
+  rolİsimi: "spam-susturulmuş" // Spam Atan Kullanıcılar Verilecek Röl
 });
 antispam(client , {
   uyarmaSınırı: 3, //Uyarılmadan önce aralıkta gönderilmesine izin verilen maksimum mesaj miktarı.
@@ -53,9 +49,7 @@ antispam(client , {
   maxSpamUyarı: 7,//Bir kullanıcının uyarılmadan önce bir zaman dilimi içinde gönderebileceği maksimum kopya sayısı
   maxSpamBan: 10, //Bir kullanıcının yasaklanmadan önce bir zaman diliminde gönderebildiği maksimum kopya sayısı
   zaman: 10, // Spamdan sonraki zaman
-  rolİsimi: "spam-susturulmuş", // Spam Atan Kullanıcılar Verilecek Röl
-  izinliRoller: ["Yönetici", "Möderatör"], // izin verilen röller
-  izinliKullanıcılar: ["SwenenzY#2904", "kullanıcı#1234"] // izin verilen Kullanıclar
+  rolİsimi: "spam-susturulmuş" // Spam Atan Kullanıcılar Verilecek Röl
 },100*100);
 ```
 Bunu Kullanın 
