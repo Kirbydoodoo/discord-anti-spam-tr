@@ -21,11 +21,7 @@ module.exports = async function (bot, options) {
   const zaman = (options && options.zaman || 10);
   const rolİsimi = (options && options.roleName) || "spam-susturulmuş";
 
-
   bot.on('message',async  msg => {
-    if (msg.author.bot) return;
-	  ////
-
 
     if(msg.author.id != bot.user.id){
       var now = Math.floor(Date.now());
@@ -131,37 +127,20 @@ module.exports = async function (bot, options) {
 	
    if (user) {
       user.addRole(role.id).then((member) => {
-        msg.channel.send(msg.author + " " +rolMesajı).then(msg => {msg.delete(10)});  
-        msg.delete(10);		
-		        msg.delete(10);
-				        msg.delete(10);
-						        msg.delete(10);
-								        msg.delete(10);
+        msg.channel.send(msg.author + " " +rolMesajı).then(msg => {msg.delete(10)});     
 		msg.channel.bulkDelete(50);
         msg.delete(10);
-		msg.channel.bulkDelete(50);
 		console.log(`Saldırı Koruyorum`);
-	    msg.channel.bulkDelete(50);
         return false;
-     }).catch(() => { 
+     }).catch(() => {
         msg.channel.send("Susturuldu" + msg.author).then(msg => {msg.delete(10)});
-		msg.delete(10);
-		        msg.delete(10);
-				        msg.delete(10);
-						        msg.delete(10);
-								        msg.delete(10);
 	    msg.channel.bulkDelete(50);
         msg.delete(10);
-		msg.channel.bulkDelete(50);
 		console.log(`Saldırı Koruyorum`);
-	    msg.channel.bulkDelete(50);
         return false;
      });
-	 msg.channel.bulkDelete(75);
-	 msg.channel.send("Saldırı Korundu").then(msg => {msg.delete(500)});  
+	msg.channel.bulkDelete(50);
+	msg.channel.send('Spam Başarı İle Korundu')
     }
-   msg.channel.bulkDelete(75);
-   
   }
 }
-
