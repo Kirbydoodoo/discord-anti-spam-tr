@@ -1,9 +1,7 @@
 <p align="center"><a href="https://nodei.co/npm/discord-anti-spam-tr/"><img src="https://nodei.co/npm/discord-anti-spam-tr.png"></a></p>
 
 # discord-anti-spam-tr.js
-Discord Sunucusu İçin Spam Koruması
-Yardım İçin Fire Team Discord Sunucusu [Fire Team Discord Sunucusu](https://discord.gg/J2FWrfW)
-Yardım İçin Fire Team Discord Sunucusu [Fire Team Discord Sunucusu](https://discord.gg/J2FWrfW)
+Discord Botlarınız/Sunucularınız İçin Spam Koruması
 Yardım İçin Fire Team Discord Sunucusu [Fire Team Discord Sunucusu](https://discord.gg/J2FWrfW)
 
 ## Kurulum
