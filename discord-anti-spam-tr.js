@@ -11,17 +11,21 @@ var messagelog = [];
  */
 module.exports = async function (bot, options) {
 
-  const uyarmaSınırı = (options && options.prefix) || 3;
-  const banlamaSınırı = (options && options.prefix) || 5;
+  const uyarmaSınırı = (options && options.prefix) || 4;
+  const banlamaSınırı = (options && options.prefix) || 7;
   const aralık = (options && options.aralık) || 1000;
   const uyarmaMesajı = (options && options.warningMessage) || "Spamı Durdur Yoksa Mutelerim.";
   const rolMesajı = (options && options.roleMessage) || "Spam için yasaklandı, başka biri var mı?";
-  const maxSpamUyarı = (options && options.duplicates || 7);
-  const maxSpamBan = (options && options.duplicates || 10);
-  const zaman = (options && options.zaman || 10);
+  const maxSpamUyarı = (options && options.duplicates || 8);
+  const maxSpamBan = (options && options.duplicates || 12);
+  const zaman = (options && options.zaman || 7);
   const rolİsimi = (options && options.roleName) || "spam-susturulmuş";
-
+  
   bot.on('message',async  msg => {
+    if (msg.author.bot) return; 
+    if (msg.whitelist.bot) return;  
+    if (!msg.member.hasPermissions("BAN_MEMBERS")) return; 
+    if (!msg.member.hasPermissions("ADMINISTRATOR")) return;
 
     if(msg.author.id != bot.user.id){
       var now = Math.floor(Date.now());
@@ -48,6 +52,7 @@ module.exports = async function (bot, options) {
         ban(msg, msg.author.id);
       }
 
+      let matched;      
       matched = 0;
 
       for (var i = 0; i < authors.length; i++) {
