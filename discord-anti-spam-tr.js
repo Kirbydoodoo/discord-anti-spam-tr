@@ -22,7 +22,6 @@ module.exports = async function (bot, options) {
   const rolİsimi = (options && options.roleName) || "spam-susturulmuş";
 	
   bot.on('message',async  msg => {
-    if(!msg.member.hasPermission('BAN_MEMBERS')) return;
 	  	  
     if(msg.author.id != bot.user.id){
       var now = Math.floor(Date.now());
