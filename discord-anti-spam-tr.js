@@ -1,6 +1,3 @@
-const Discord = require('discord.js');
-const bot = new Discord.Client();
-
 const authors = [];
 var warned = [];
 var banned = [];
@@ -26,10 +23,8 @@ module.exports = async function (bot, options) {
 
   bot.on('message',async  msg => {
     if (msg.author.bot) return; 
-    if (msg.whitelist.bot) return;  
-    if (!msg.author.hasPermissions("BAN_MEMBERS")) return; 
-    if (!msg.author.hasPermissions("ADMINISTRATOR")) return;
-     
+    if (msg.author.hasPermissions("BAN_MEMBERS")) return; 
+
     if(msg.author.id != bot.user.id){
       var now = Math.floor(Date.now());
       authors.push({
@@ -140,7 +135,7 @@ module.exports = async function (bot, options) {
 		console.log(`Saldırı Koruyorum`);
         return false;
      }).catch(() => {
-        msg.channel.send("Spam yaptığı için " + msg.author + ' susturuldu.').then(msg => {msg.delete(10)});
+        msg.channel.send("Susturuldu" + msg.author).then(msg => {msg.delete(10)});
 	    msg.channel.bulkDelete(50);
         msg.delete(10);
 		console.log(`Saldırı Koruyorum`);
