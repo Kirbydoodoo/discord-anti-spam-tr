@@ -28,6 +28,8 @@ antispam(client, {
 ```
 Eğer daha İyi Bir Koruma İstiyorsanız
 ```js
+const antispam = require("discord-anti-spam-tr");
+
 antispam(client, {
   uyarmaSınırı: 4, //Uyarılmadan önce aralıkta gönderilmesine izin verilen maksimum mesaj miktarı.
   banlamaSınırı: 7, //Yasaklanmadan önce aralıkta gönderilmesine izin verilen maksimum ileti miktar.
